@@ -47,7 +47,6 @@ public class Punishments implements Serializable{
 	}
 	public static void remove(int id) {
 		punishments.remove(id);
-		
 	}
 	public static void ser(){
 		try
