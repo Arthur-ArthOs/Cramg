@@ -55,6 +55,7 @@ public class Listener extends ListenerAdapter{
 						}
     		        });
     				event.getGuild().ban(event.getMember(), 7).complete();
+    				return;
     				} else {
     					EmbedBuilder builder = new EmbedBuilder();
     		        	builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
@@ -65,11 +66,13 @@ public class Listener extends ListenerAdapter{
     					for (GuildChannel channel : event.getGuild().getChannels()) {
     				    	if(channel.getName().equalsIgnoreCase("cramg-emits")) {
     				    		event.getJDA().getTextChannelById(channel.getId()).sendMessage(builder.build()).queue();
+    				    		return;
     				    	}
     				    } 	
     				}
-    				return;
     			}
+    		}else {
+    			continue;
     		}
     	}
     	Users.add(false, event.getMember().getId());
