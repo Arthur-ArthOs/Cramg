@@ -11,10 +11,10 @@ public class Help {
       builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
       builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
       builder.setTitle("Aide", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
-      strb.append("*ban utilisateurid : Banni l'utilisateur de votre serveur et envoie un input aux autres");
-      strb.append("*view utilisateurid : Montre la carte d'identité d'un utilisateur");
-      strb.append("*punish utilisateurid : Ajoute une punition à la carte d'identité de l'utilisateur");
-      strb.append("*depunish punitionid : Enleve la punition qui correspond avec l'id");
+      strb.append("*ban utilisateurid : Banni l'utilisateur de votre serveur et envoie un input aux autres\n");
+      strb.append("*view utilisateurid : Montre la carte d'identité d'un utilisateur\n");
+      strb.append("*punish utilisateurid : Ajoute une punition à la carte d'identité de l'utilisateur\n");
+      strb.append("*depunish punitionid : Enleve la punition qui correspond avec l'id\n");
       builder.setDescription(strb.toString());
       event.getChannel().sendMessage(builder.build()).queue();
 	}
