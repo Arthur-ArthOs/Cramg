@@ -39,7 +39,6 @@ public class Users implements Serializable{
 	}
 	public static void remove(int id) {
 		users.remove(id);
-		
 	}
 	public static void ser(){
 		try

@@ -21,13 +21,11 @@ public class View {
 				  builder.addField("Banni ?", "Non", true);
 			  }
 
-			  int i = 0;
 			  for (Punishments punishment : Punishments.getArray()) {
 				  if(punishment.getId().equalsIgnoreCase(user.getId())) {
 					  
-					  strb.append(i+" - "+"Punition :"+punishment.getName()+" : "+punishment.getReason());
+					  strb.append(Punishments.getArray().indexOf(punishment)+" - "+"Punition : "+punishment.getName()+" : "+punishment.getReason());
 				  }
-				  i++;
 			  }
 			  builder.addField("Punishment", strb.toString(), false);
 			  builder.setColor(Color.GREEN);

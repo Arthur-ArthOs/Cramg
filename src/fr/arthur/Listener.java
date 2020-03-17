@@ -5,7 +5,6 @@ import net.dv8tion.jda.api.audit.ActionType;
 import net.dv8tion.jda.api.audit.AuditLogEntry;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
-import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.guild.GuildBanEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -17,6 +16,7 @@ import java.awt.Color;
 import Commands.AddPunishment;
 import Commands.GBan;
 import Commands.GUnban;
+import Commands.Help;
 import Commands.OnOffAutoban;
 import Commands.RemovePunishment;
 import Commands.Scan;
@@ -158,6 +158,9 @@ public class Listener extends ListenerAdapter{
     	}
     	if(message.startsWith("*autoban")) {
     		OnOffAutoban.execute(args, event);
+    	}
+    	if(message.startsWith("*help")) {
+    		Help.execute(args, event);
     	}
     }
 }

@@ -1,7 +1,6 @@
 package Commands;
 
 import DB.Punishments;
-import DB.Users;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class AddPunishment {
