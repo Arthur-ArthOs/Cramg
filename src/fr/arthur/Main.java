@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.exceptions.RateLimitedException;
 
 public class Main {
 	public static void main(String[] args) throws LoginException, IllegalArgumentException, InterruptedException, RateLimitedException{
-	 JDA jda = new JDABuilder(AccountType.BOT).setToken("Njg3MzAyNzMyODU5NTcyMjI0.XnCi2g.NWsogDBzBJS37Xkcp6Xm-bsKEVQ").build();
+	 JDA jda = new JDABuilder(AccountType.BOT).setToken("Njg3MzAyNzMyODU5NTcyMjI0.XnCj4Q.jcLJrMDOo3c-1U-DO6oKn2A21CY").build();
 	 Users.deser();
 	 Punishments.deser();
 	 jda.addEventListener(new Listener());
