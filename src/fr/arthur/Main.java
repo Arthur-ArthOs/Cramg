@@ -2,6 +2,7 @@ package fr.arthur;
 
 import javax.security.auth.login.LoginException;
 
+import DB.Autobans;
 import DB.Punishments;
 import DB.Users;
 import net.dv8tion.jda.api.AccountType;
@@ -14,6 +15,7 @@ public class Main {
 	 JDA jda = new JDABuilder(AccountType.BOT).setToken("Njg3MzAyNzMyODU5NTcyMjI0.XnCj4Q.jcLJrMDOo3c-1U-DO6oKn2A21CY").build();
 	 Users.deser();
 	 Punishments.deser();
+	 Autobans.deser();
 	 jda.addEventListener(new Listener());
 	}
 }
