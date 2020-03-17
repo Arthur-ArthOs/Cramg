@@ -11,7 +11,7 @@ public class OnOffAutoban {
 			  Autobans.add(event.getGuild().getId());
 			  EmbedBuilder builder = new EmbedBuilder();
 	          builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
-	          builder.setDescription("Autoban activé ! :white_check_mark_");
+	          builder.setDescription("Autoban activé ! :white_check_mark:");
 	          builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setTitle("Autoban", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
@@ -21,7 +21,7 @@ public class OnOffAutoban {
 			  Autobans.remove(event.getGuild().getId());
 			  EmbedBuilder builder = new EmbedBuilder();
 	          builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
-	          builder.setDescription("Autoban désactivé ! :white_check_mark_");
+	          builder.setDescription("Autoban désactivé ! :white_check_mark:");
 	          builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setTitle("Autoban", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
