@@ -15,6 +15,7 @@ public class OnOffAutoban {
 	          builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setTitle("Autoban", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
+	          event.getChannel().sendMessage(builder.build()).queue();
 		  }else {
 			  Autobans.remove(event.getGuild().getId());
 			  EmbedBuilder builder = new EmbedBuilder();
@@ -23,6 +24,7 @@ public class OnOffAutoban {
 	          builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
 	          builder.setTitle("Autoban", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
+	          event.getChannel().sendMessage(builder.build()).queue();
 		}
 	  }
    }
