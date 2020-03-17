@@ -7,7 +7,7 @@ public class Help {
 	public static void execute(String args[], MessageReceivedEvent event) {
 	  EmbedBuilder builder = new EmbedBuilder();
 	  StringBuilder strb = new StringBuilder();
-      builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
+      builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://i.ibb.co/wW5xnwW/Sans-titre.png", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
       builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
       builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
       builder.setTitle("Aide", "https://i.ibb.co/wW5xnwW/Sans-titre.png");

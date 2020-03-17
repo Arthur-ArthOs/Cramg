@@ -24,7 +24,7 @@ public class Scan {
 				  continue;
 			  }else {
 				  if(member.getUser().isBot()) {
-					  return;
+					  continue;
 				  }
 				  Users.add(false, member.getId());
 				  Users.ser();
