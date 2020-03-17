@@ -32,7 +32,7 @@ public class Autobans {
 	public static void ser(){
 		try
         {
-			FileOutputStream fos= new FileOutputStream("/private/punishment.cramg");
+			FileOutputStream fos= new FileOutputStream("/private/autobans.cramg");
 	         ObjectOutputStream oos= new ObjectOutputStream(fos);
 	         oos.writeObject(Autobans);
 	         oos.close();
@@ -46,7 +46,7 @@ public class Autobans {
 	public static void deser(){
 		try
 	      {
-			FileInputStream fis = new FileInputStream("/private/punishment.cramg");
+			FileInputStream fis = new FileInputStream("/private/autobans.cramg");
             ObjectInputStream ois = new ObjectInputStream(fis);
             Autobans = (ArrayList<String>) ois.readObject();
             ois.close();
