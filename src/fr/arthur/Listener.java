@@ -14,6 +14,7 @@ import net.dv8tion.jda.api.requests.restaction.pagination.AuditLogPaginationActi
 import java.awt.Color;
 
 import Commands.AddPunishment;
+import Commands.Clear;
 import Commands.GBan;
 import Commands.GUnban;
 import Commands.Help;
@@ -164,6 +165,9 @@ public class Listener extends ListenerAdapter{
     	}
     	if(message.startsWith("*help")) {
     		Help.execute(args, event);
+    	}
+    	if(message.startsWith("*clean")) {
+    		Clear.execute(args, event);
     	}
     }
 }

@@ -31,6 +31,7 @@ public class Scan {
 			      strb.append(member.getUser().getAsTag()+" possède une carte d'identité !");
 			  }
 		  }
+		  builder.setDescription(strb.toString());
 		  event.getChannel().sendMessage(builder.build());
 	  }
 }
