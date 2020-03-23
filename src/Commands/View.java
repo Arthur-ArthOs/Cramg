@@ -12,7 +12,8 @@ public class View {
   public static void execute(String args[], MessageReceivedEvent event) {
 	  for (Users user : Users.getArray()) {
 		  for (Member member : event.getGuild().getMembers()) {
-			  if(member.getUser() == event.getJDA().getUserById(user.getId())) {
+			  if(member.getUser().equals(event.getJDA().getUserById(user.getId()))) {
+				  
 			  if(event.getJDA().getUserById(user.getId()).getAsMention().equalsIgnoreCase(args[1])) {
 				  System.out.println("lol");
 			  }
