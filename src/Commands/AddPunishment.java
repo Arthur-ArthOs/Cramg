@@ -2,10 +2,14 @@ package Commands;
 
 import DB.Punishments;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class AddPunishment {
 	public static void execute(String args[], MessageReceivedEvent event) {
+		for (User user : event.getMessage().getMentionedUsers()) {
+			  args[1] = user.getId();
+		}
 		String reason = event.getMessage().getContentDisplay().replaceAll("\\*punish", "");
 		String reason2 = reason.replaceAll(args[1], "");
 		String reason3 = reason2.replaceAll(args[2], "");

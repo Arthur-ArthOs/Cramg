@@ -2,6 +2,7 @@ package Commands;
 
 import DB.Punishments;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class RemovePunishment {
