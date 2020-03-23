@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.audit.AuditLogEntry;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.events.guild.GuildBanEvent;
+import net.dv8tion.jda.api.events.guild.invite.GuildInviteCreateEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -25,7 +26,7 @@ import Commands.View;
 import DB.Autobans;
 import DB.Users;
 
-public class Listener extends ListenerAdapter{
+public class Listener extends ListenerAdapter {
 
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
     	for (Users user : Users.getArray()) {
@@ -44,7 +45,7 @@ public class Listener extends ListenerAdapter{
     		        	builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
     		        	builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
     		        	builder.setTitle("Notification d'accusation", "https://i.ibb.co/wW5xnwW/*banSans-titre.png");
-    		        	builder.addField("Pourquoi ne puis-je pas rejoindre ce serveur ?", "Vous avez été banni d'un des serveurs membres de la Cramg, il vous est donce impossible de rejoindre n'importe quel serveur membre de l'alliance", true);
+    		        	builder.addField("Pourquoi ne puis-je pas rejoindre ce serveur ?", "Vous avez été banni d'un des serveurs membres de la Cramg, il vous est donc impossible de rejoindre n'importe quel serveur membre de l'alliance", true);
     		        	builder.addField("Que puis-je faire pour être débanni ?", "Il suffit de rejoindre le serveur principal de la Cramg, ici, vous pourrez vous défendre lors d'un procès qui sera organisé une fois que vous aurez rejoint.", true);
     		            builder.addField("Invitation", "https://discord.gg/see3N2Z", true);
     		        	channel.sendMessage(builder.build()).queue();
@@ -143,6 +144,9 @@ public class Listener extends ListenerAdapter{
                Users.ser();
     		}
     	}	
+    }
+    public void onGuildInviteCreate(GuildInviteCreateEvent event) {
+    	
     }
     public void onMessageReceived(MessageReceivedEvent event) {
     	String message = event.getMessage().getContentDisplay();
