@@ -6,19 +6,16 @@ import DB.Punishments;
 import DB.Users;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class View {
   public static void execute(String args[], MessageReceivedEvent event) {
 	  for (Users user : Users.getArray()) {
-		  for (Member member : event.getGuild().getMembers()) {
-			  if(member.getUser().equals(event.getJDA().getUserById(user.getId()))) {
-			  System.out.println(args[1]);
-			  if(args[1].equalsIgnoreCase("<@"+user.getId()+">")) {
-				  System.out.println(event.getJDA().getUserByTag(args[1]));
-				  System.out.println("lol");
-			  }
-			  }
+		  for (User user2 : event.getMessage().getMentionedUsers()) {
+			   if(user2.getId().equalsIgnoreCase(user.getId())) {
+				   System.out.print("test");
+			   }
 		  }
 		  if(user.getId().equalsIgnoreCase(args[1])) {
 			  EmbedBuilder builder = new EmbedBuilder();
