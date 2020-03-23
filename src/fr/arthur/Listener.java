@@ -14,7 +14,7 @@ import net.dv8tion.jda.api.requests.restaction.pagination.AuditLogPaginationActi
 import java.awt.Color;
 
 import Commands.AddPunishment;
-import Commands.Clear;
+import Commands.Clean;
 import Commands.GBan;
 import Commands.GUnban;
 import Commands.Help;
@@ -82,9 +82,14 @@ public class Listener extends ListenerAdapter{
     	AuditLogPaginationAction Logs = event.getGuild().retrieveAuditLogs();
     	Logs.type(ActionType.BAN);
     	Logs.limit(1);
+    	String Tag = null;
+    	String Id = null;
     	for(AuditLogEntry log : Logs) {
     		if(log.getUser().isBot()) {
     			return;
+    		} else {
+    		    Tag = log.getUser().getAsTag();
+    		     Id = log.getUser().getId();
     		}
     	}
     	for (Users user : Users.getArray()) {
@@ -96,7 +101,7 @@ public class Listener extends ListenerAdapter{
     				    builder.setTitle("Avertissement");
     					builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
     				    builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://cramg.net", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
-    					builder.setDescription("L'utilisateur : "+event.getUser().getAsTag()+" a bien été banni sur un des serveurs de l'alliance !");
+    					builder.setDescription("L'utilisateur "+event.getUser().getAsTag()+" avec l'id : "+event.getUser().getId()+" a été banni par "+Tag+" avec l'id :" +Id+" sur :"+event.getGuild().getName());
     					builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
     					for (GuildChannel channel : guild.getChannels()) {
     				    	if(channel.getName().equalsIgnoreCase("cramg-emits")) {
@@ -111,7 +116,7 @@ public class Listener extends ListenerAdapter{
     					builder.setTitle("Banissement");
     				    builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
     					builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://cramg.net", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
-    					builder.setDescription("L'utilisateur : "+event.getUser().getAsTag()+" a bien été banni !");
+    					builder.setDescription("L'utilisateur : "+event.getUser().getAsTag()+" a été banni sur ce serveur!");
     					builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
     				    for (GuildChannel channel : guild.getChannels()) {
     				    	if(channel.getName().equalsIgnoreCase("cramg-emits")) {
@@ -125,7 +130,7 @@ public class Listener extends ListenerAdapter{
     				    builder.setTitle("Avertissement");
     					builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
     				    builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://cramg.net", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
-    					builder.setDescription("L'utilisateur : "+event.getUser().getAsTag()+" a bien été banni sur un des serveurs de l'alliance !");
+    					builder.setDescription("L'utilisateur : "+event.getUser().getAsTag()+" a été banni sur un des serveurs de l'alliance !");
     					builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
     					for (GuildChannel channel : guild.getChannels()) {
     				    	if(channel.getName().equalsIgnoreCase("cramg-emits")) {
@@ -167,7 +172,7 @@ public class Listener extends ListenerAdapter{
     		Help.execute(args, event);
     	}
     	if(message.startsWith("*clean")) {
-    		Clear.execute(args, event);
+    		Clean.execute(args, event);
     	}
     }
 }
