@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 public class View {
   public static void execute(String args[], MessageReceivedEvent event) {
 	  for (Users user : Users.getArray()) {
-		  System.out.print(event.getJDA().getUserById(user.getId()));
+		  System.out.print(event.getJDA().getUserById(user.getId()).getAsMention());
 		  if(user.getId().equalsIgnoreCase(args[1])) {
 			  EmbedBuilder builder = new EmbedBuilder();
 			  StringBuilder strb = new StringBuilder();
