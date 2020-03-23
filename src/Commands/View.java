@@ -5,12 +5,19 @@ import java.awt.Color;
 import DB.Punishments;
 import DB.Users;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class View {
   public static void execute(String args[], MessageReceivedEvent event) {
 	  for (Users user : Users.getArray()) {
-		  System.out.print(event.getJDA().getUserById(user.getId()).getAsMention());
+		  for (Member member : event.getGuild().getMembers()) {
+			  if(member.getUser() == event.getJDA().getUserById(user.getId())) {
+			  if(event.getJDA().getUserById(user.getId()).getAsMention().toString().equalsIgnoreCase(args[1].toString())) {
+				  System.out.println("lol");
+			  }
+			  }
+		  }
 		  if(user.getId().equalsIgnoreCase(args[1])) {
 			  EmbedBuilder builder = new EmbedBuilder();
 			  StringBuilder strb = new StringBuilder();
