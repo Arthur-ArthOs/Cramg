@@ -14,7 +14,7 @@ public class View {
 	  for (Users user : Users.getArray()) {
 		  for (User user2 : event.getMessage().getMentionedUsers()) {
 			   if(user2.getId().equalsIgnoreCase(user.getId())) {
-				   System.out.print("test");
+				   args[1] = user2.getId();
 			   }
 		  }
 		  if(user.getId().equalsIgnoreCase(args[1])) {
