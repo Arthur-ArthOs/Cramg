@@ -13,10 +13,10 @@ public class View {
 	  for (Users user : Users.getArray()) {
 		  for (Member member : event.getGuild().getMembers()) {
 			  if(member.getUser().equals(event.getJDA().getUserById(user.getId()))) {
-			  //if(event.getJDA().getUserByTag(arg)) {
+			  if(args[1].equalsIgnoreCase("<@"+user.getId()+">")) {
 				  System.out.println(event.getJDA().getUserByTag(args[1]));
 				  System.out.println("lol");
-			  //}
+			  }
 			  }
 		  }
 		  if(user.getId().equalsIgnoreCase(args[1])) {
