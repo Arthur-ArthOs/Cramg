@@ -13,7 +13,7 @@ public class View {
 	  for (Users user : Users.getArray()) {
 		  for (Member member : event.getGuild().getMembers()) {
 			  if(member.getUser() == event.getJDA().getUserById(user.getId())) {
-			  if(event.getJDA().getUserById(user.getId()).getAsMention().toString().equalsIgnoreCase(args[1].toString())) {
+			  if(event.getJDA().getUserById(user.getId()).getAsMention().equalsIgnoreCase(args[1])) {
 				  System.out.println("lol");
 			  }
 			  }
