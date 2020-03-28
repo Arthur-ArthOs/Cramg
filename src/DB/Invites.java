@@ -11,10 +11,10 @@ public class Invites {
 	private String Link;
 	private String Guild;
 	private String id;
-	
+	private Integer Utilisations;
 	private static ArrayList<Invites> invites = new ArrayList<>();
     
-	public Invites(String Link, String Guild, String id) {
+	public Invites(String Link, String Guild, Integer Utilisations, String id) {
 		this.Link = Link;
 		this.Guild = Guild;
 		this.id = id;
@@ -31,6 +31,9 @@ public class Invites {
 	public String getGuild() {
 		return Guild;
 	}
+	public Integer getUtilisations() {
+		return Utilisations;
+	}
 	public void setLink(String Link) {
 		this.Link = Link;
 	}
@@ -40,8 +43,11 @@ public class Invites {
 	public void setGuild(String Guild) {
 		this.Guild = Guild;
 	}
-	public static void add(String Link, String Guild, String id) {
-		invites.add(new Invites(Link, Guild, id));
+	public void setUtilisations(Integer Utilisations) {
+		this.Utilisations = Utilisations;
+	}
+	public static void add(String Link, String Guild, Integer Utilisations, String id) {
+		invites.add(new Invites(Link, Guild, Utilisations, id));
 	}
 	public static void remove(int id) {
 		invites.remove(id);
@@ -49,7 +55,7 @@ public class Invites {
 	public static void ser(){
 		try
         {
-			FileOutputStream fos= new FileOutputStream("/private/punishment.cramg");
+			FileOutputStream fos= new FileOutputStream("/private/invites.cramg");
 	         ObjectOutputStream oos= new ObjectOutputStream(fos);
 	         oos.writeObject(invites);
 	         oos.close();
@@ -63,7 +69,7 @@ public class Invites {
 	public static void deser(){
 		try
 	      {
-			FileInputStream fis = new FileInputStream("/private/punishment.cramg");
+			FileInputStream fis = new FileInputStream("/private/invites.cramg");
             ObjectInputStream ois = new ObjectInputStream(fis);
             invites = (ArrayList<Invites>) ois.readObject();
             ois.close();

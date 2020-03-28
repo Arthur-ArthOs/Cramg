@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.audit.AuditLogEntry;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.GuildChannel;
 import net.dv8tion.jda.api.events.guild.GuildBanEvent;
+import net.dv8tion.jda.api.events.guild.GuildLeaveEvent;
 import net.dv8tion.jda.api.events.guild.invite.GuildInviteCreateEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -19,20 +20,38 @@ import Commands.Clean;
 import Commands.GBan;
 import Commands.GUnban;
 import Commands.Help;
+import Commands.VInvites;
 import Commands.OnOffAutoban;
 import Commands.RemovePunishment;
 import Commands.Scan;
 import Commands.View;
 import DB.Autobans;
+import DB.Invites;
 import DB.Users;
 
 public class Listener extends ListenerAdapter {
-
+    
+	public void onGuildLeave(GuildLeaveEvent event) {
+	   for (GuildChannel channel : event.getJDA().getGuildById("324527359321440260").getChannels()) {
+		   if(channel.getName().equalsIgnoreCase("cramg-emits")) {
+			   EmbedBuilder builder = new EmbedBuilder();
+	           builder.setAuthor("Cramg | Maison de Gestion : Bureau de l'Interieur", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
+	           builder.setThumbnail("https://i.ibb.co/wW5xnwW/Sans-titre.png");
+	           builder.setFooter("By Cramg", "https://i.ibb.co/wW5xnwW/Sans-titre.png");
+	           builder.setTitle("Bot kické", "https://i.ibb.co/wW5xnwW/*banSans-titre.png");
+               builder.setDescription("Bot kické de : "+event.getGuild().getName());		   
+			   event.getJDA().getTextChannelById(channel.getId()).sendMessage(builder.build()).queue();
+		   }
+	   }
+	}
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+    	for(Invites invite : Invites.getArray()) {
+    		invite.setUtilisations(invite.getUtilisations()+1);
+    	}
     	for (Users user : Users.getArray()) {
     		if(user.getId().equalsIgnoreCase(event.getMember().getId())) {
     			if(user.getBanned() == true) {
-    				if(event.getGuild().getName().equalsIgnoreCase("Cramg")) {
+    				if(event.getGuild().getId().equalsIgnoreCase("324527359321440260")) {
     					event.getGuild().addRoleToMember(event.getMember(), event.getGuild().getRoleById("513641766050594831")).queue();
     					event.getGuild().removeRoleFromMember(event.getMember(), event.getGuild().getRoleById("481219759988277267")).queue();
     					return;
@@ -146,7 +165,12 @@ public class Listener extends ListenerAdapter {
     	}	
     }
     public void onGuildInviteCreate(GuildInviteCreateEvent event) {
-    	
+    	AuditLogPaginationAction Logs = event.getGuild().retrieveAuditLogs();
+    	Logs.type(ActionType.INVITE_CREATE);
+    	Logs.limit(1);
+    	for (AuditLogEntry log : Logs) {
+    	Invites.add(event.getUrl(), event.getGuild().getName(), 0,log.getUser().getId());
+    	}
     }
     public void onMessageReceived(MessageReceivedEvent event) {
     	String message = event.getMessage().getContentDisplay();
@@ -177,6 +201,9 @@ public class Listener extends ListenerAdapter {
     	}
     	if(message.startsWith("*clean")) {
     		Clean.execute(args, event);
+    	}
+    	if(message.startsWith("*invites")) {
+    		VInvites.execute(args, event);
     	}
     }
 }

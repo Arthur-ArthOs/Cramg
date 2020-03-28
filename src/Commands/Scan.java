@@ -32,6 +32,6 @@ public class Scan {
 			  }
 		  }
 		  builder.setDescription(strb.toString());
-		  event.getChannel().sendMessage(builder.build());
+		  event.getChannel().sendMessage(builder.build()).queue();
 	  }
 }
